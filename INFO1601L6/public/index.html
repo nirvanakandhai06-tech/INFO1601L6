@@ -17,18 +17,22 @@
 
     <main class="row" style="padding: 40px">
 
+      <!-- Task 2 - Alert / Confirm / Prompt buttons -->
       <div style="margin-bottom: 20px;">
         <button onclick="alertFun()">Alert</button>
         <button onclick="confirmFun()">Confirm</button>
         <button onclick="promptFun()">Prompt</button>
       </div>
 
+      <!-- Task 5 - Button with event listeners -->
       <input id="myBtn" type="button" onclick="myFun()" value="click me"/>
 
+      <!-- Exercise - Image from placecage -->
       <div style="margin: 20px 0;">
         <img id="cageImg" src="https://www.placecage.com/200/200" alt="Nicolas Cage"/>
       </div>
 
+      <!-- Task 6.1 - Table -->
       <table>
         <thead>
           <tr>
@@ -69,13 +73,21 @@
       console.log(navigator.appVersion);
       console.log(navigator.userAgent);
       console.log(navigator.platform);
+
       console.log(window.location.href);
       console.log(window.location.protocol);
       console.log(window.location.hostname);
 
+      function redirect(url) {
+        window.location.assign(url);
+      }
+
       window.onload = function(event) {
         console.log("Page has loaded");
       }
+
+      const result = document.querySelector('#result');
+
 
       function myFun() {
         alert("hello");
@@ -116,6 +128,7 @@
       }
 
       function drawDetails(record) {
+        // record may be an array or a single object depending on API response
         let data = Array.isArray(record) ? record[0] : record;
         alert(`
           Name: ${data.name}
@@ -136,8 +149,11 @@
         }
       }
 
+      // Fetch brewery data on page load
       getData("https://api.openbrewerydb.org/breweries/search?query=harry", drawTable);
 
     </script>
   </body>
 </html>
+```
+
